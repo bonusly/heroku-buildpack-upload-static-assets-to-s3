@@ -10,8 +10,6 @@ AWS_ACCESS_KEY_ID=<aws access key id>
 AWS_SECRET_ACCESS_KEY=<aws secret access key>
 AWS_DEFAULT_REGION=<aws-region>
 AWS_STATIC_BUCKET_NAME=<s3-bucket-name>
-# prefix to include in path
-AWS_STATIC_PREFIX=static
 # The directory to upload to S3 (uploads the content of the directory)
 AWS_STATIC_SOURCE_DIRECTORY=public
 ```
@@ -20,10 +18,9 @@ AWS_STATIC_SOURCE_DIRECTORY=public
 
 ```sh
 STATIC_SERVER=<AWS_STATIC_BUCKET_NAME>.s3.amazonaws.com
-STATIC_PATH=/<AWS_STATIC_PREFIX>/<YYYY-MM-DD>/<git-commit-sha1>
 ```
 
-These variables can be overriden with config vars as expected
+This variable can be overriden with config vars as expected
 
 ```
 heroku config:set STATIC_SERVER=your.cdn.host
@@ -34,4 +31,3 @@ To return to the default value just unset the config vars
 ```
 heroku config:unset STATIC_SERVER
 ```
-
